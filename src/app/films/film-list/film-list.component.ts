@@ -10,10 +10,15 @@ import { FilmsService } from '../../services/films/films.service';
 })
 export class FilmListComponent implements OnInit {
   filmsObservable: Observable<Film[]> = this.films.getFilms();
+  filmObservable?: Observable<Film>;
 
   constructor(private films: FilmsService) { }
 
   ngOnInit(): void {
+  }
+
+  getFilmById(id: string): void {
+    this.filmObservable = this.films.getFilmById(id);
   }
 
 }

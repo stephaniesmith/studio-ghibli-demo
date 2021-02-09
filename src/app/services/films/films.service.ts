@@ -24,4 +24,14 @@ export class FilmsService {
       )
     );
   }
+
+  getFilmById(id: string): Observable<Film> {
+    return this.httpClient.get<Film>(`${this.filmUrl}/${id}`).pipe(
+      take(1),
+      tap(
+        () => console.log('GET Film by ID'),
+        ({ status, statusText, message }) => console.error(`Could NOT GET Film by ID: ${status} ${statusText} ${message}`)
+      )
+    );
+  }
 }
