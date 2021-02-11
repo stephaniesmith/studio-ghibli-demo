@@ -1,0 +1,9 @@
+<div
+    *ngIf="filmObservable | async as film"
+    class="film">
+    <h2>{{ film.title }}</h2>
+    <p>Director: {{ film.director }}</p>
+    <p>Release Date: {{ film.release_date }}</p>
+    <p>Rotten Tomato Score: {{ film.rt_score }}</p>
+    <p>{{ film.description }}</p>
+</div>
