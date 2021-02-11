@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { PeopleService } from 'src/app/services/people/people.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-character-list',
@@ -8,9 +6,9 @@ import { PeopleService } from 'src/app/services/people/people.service';
   styleUrls: ['./character-list.component.scss']
 })
 export class CharacterListComponent implements OnInit {
-  charactersObservable: Observable<any[]> = this.people.getCharacters();
+  @Input() characters: any[] = [];
 
-  constructor(private people: PeopleService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

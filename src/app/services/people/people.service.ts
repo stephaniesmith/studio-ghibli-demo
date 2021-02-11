@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
@@ -13,8 +13,12 @@ export class PeopleService {
     private httpClient: HttpClient,
   ) { }
 
-  getCharacters(): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.peopleUrl).pipe(
+  getCharacters({ gender }: { gender: string } = { gender: '' }): Observable<any[]> {
+    let params = new HttpParams()
+    
+    if (gender) params = params.set('gender', gender);
+
+    return this.httpClient.get<any[]>(this.peopleUrl, { params }).pipe(
       take(1),
       tap(
         () => console.log('GET Characters'),

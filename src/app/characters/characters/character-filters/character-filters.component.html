@@ -1,1 +1,25 @@
-<p>character-filters works!</p>
+<form
+    [formGroup]="filterForm"
+    (ngSubmit)="onSubmit()">
+    <div>
+        <label for="gender">
+            Gender
+        </label>
+        <select
+            name="gender"
+            id="gender"
+            formControlName="gender">
+            <option value="">
+                All Genders
+            </option>
+            <option
+                *ngFor="let gender of genders"
+                [value]="gender">
+                {{ gender }}
+            </option>
+        </select>
+    </div>
+    <button type="submit">
+        Apply Filters
+    </button>
+</form>

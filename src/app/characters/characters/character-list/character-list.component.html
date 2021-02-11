@@ -1,5 +1,5 @@
 <div
-    *ngFor="let character of (charactersObservable | async)"
+    *ngFor="let character of characters"
     class="card">
     <h2>{{ character.name }}</h2>
     <p>Gender: {{ character.gender }}</p>

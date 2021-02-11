@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-character-filters',
@@ -6,10 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./character-filters.component.scss']
 })
 export class CharacterFiltersComponent implements OnInit {
+  @Input() characters: any[] = [];
+  genders: string[] = [];
 
-  constructor() { }
+  filterForm = this.formBuilder.group({
+    gender: new FormControl('')
+  })
+
+  @Output() filters = new EventEmitter();
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.getGenders();
   }
 
+  getGenders(): void {
+    const genderArray = this.characters.map(({ gender }) => gender);
+    this.genders = [...new Set(genderArray)];
+  }
+
+  onSubmit(): void {
+    this.filters.emit(this.filterForm.value);
+  };
 }

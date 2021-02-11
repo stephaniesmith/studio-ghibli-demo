@@ -1,5 +1,12 @@
-<app-character-filters>
-</app-character-filters>
-
-<app-character-list>
-</app-character-list>
+<main>
+    <app-character-filters
+        *ngIf="allCharactersObservable | async as characters"
+        [characters]="characters"
+        (filters)="getFilteredCharacter($event)">
+    </app-character-filters>
+    
+    <app-character-list
+        *ngIf="filteredCharacterObservable | async as characters"
+        [characters]="characters">
+    </app-character-list>
+</main>
