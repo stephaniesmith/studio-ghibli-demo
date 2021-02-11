@@ -1,6 +1,6 @@
 <div
     *ngFor="let film of (filmsObservable | async)"
-    class="film">
+    class="card">
     <h2>{{ film.title }}</h2>
     <p>{{ film.description }}</p>
     <a [routerLink]="film.id">

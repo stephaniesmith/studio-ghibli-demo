@@ -1,0 +1,9 @@
+<div
+    *ngFor="let character of (charactersObservable | async)"
+    class="card">
+    <h2>{{ character.name }}</h2>
+    <p>Gender: {{ character.gender }}</p>
+    <p>Age: {{ character.age }}</p>
+    <p>Eye Color: {{ character.eye_color }}</p>
+    <p>Hair Color: {{ character.hair_color }}</p>
+</div>
