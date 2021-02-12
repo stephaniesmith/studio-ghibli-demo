@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Film } from 'src/app/services/films/films';
+import { FilmDetail } from 'src/app/services/films/films';
 import { FilmsService } from 'src/app/services/films/films.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { FilmsService } from 'src/app/services/films/films.service';
   styleUrls: ['./film.component.scss']
 })
 export class FilmComponent implements OnInit {
-  filmObservable!: Observable<Film>;
+  filmObservable!: Observable<FilmDetail>;
 
   constructor(
     private films: FilmsService,
@@ -21,5 +21,4 @@ export class FilmComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.filmObservable = this.films.getFilmById(id);
   }
-
 }

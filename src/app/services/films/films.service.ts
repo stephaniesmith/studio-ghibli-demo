@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { Observable } from 'rxjs';
-import { take, tap } from 'rxjs/operators';
-import { Film } from './films';
+import { Observable, of } from 'rxjs';
+import { mergeMap, take, tap } from 'rxjs/operators';
+import { Film, FilmDetail } from './films';
+import { PeopleService } from '../people/people.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class FilmsService {
 
   constructor(
     private httpClient: HttpClient,
+    private people: PeopleService
   ) { }
 
   getFilms(): Observable<Film[]> {
@@ -25,13 +27,20 @@ export class FilmsService {
     );
   }
 
-  getFilmById(id: string): Observable<Film> {
-    return this.httpClient.get<Film>(`${this.filmUrl}/${id}`).pipe(
+  getFilmById(id: string): Observable<FilmDetail> {
+    return this.httpClient.get<any>(`${this.filmUrl}/${id}`).pipe(
       take(1),
       tap(
         () => console.log('GET Film by ID'),
         ({ status, statusText, message }) => console.error(`Could NOT GET Film by ID: ${status} ${statusText} ${message}`)
-      )
+      ),
+      mergeMap(film => {
+        const people = film.people.filter(url => url.includes('-'))
+          .map(url => url.substring(39, 75))
+          .map(id => this.people.getCharacterById(id));
+
+        return of({ ...film, people });
+      })
     );
   }
 }
