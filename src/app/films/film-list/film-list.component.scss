@@ -1,29 +1,15 @@
 .card {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
+    transition: all 0.3s ease 0s;
 
-    // a {
-        // background-color: rgba(228, 228, 228, 0.034);
-        // box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-        // margin-top: 1rem;
-        // padding: .5rem;
-        transition: all 0.3s ease 0s;
-        // width: fit-content;
+    &:hover {
+        box-shadow: 0px 15px 20px rgba(240, 128, 128, 0.3);
+        color: white;
+        transform: translateY(-7px);
+    }
 
-        &:hover {
-            // background-color: rgb(240, 128, 128);
-            box-shadow: 0px 15px 20px rgba(240, 128, 128, 0.4);
-            color: white;
-            transform: translateY(-7px);
-            // font-weight: 600;
-        }
-
-        &:focus {
-            // background-color: rgb(240, 128, 128);
-            box-shadow: 0px 8px 15px rgba(240, 128, 128,0.2);
-            color: white;
-            transform: translateY(-5px);
-        // }
+    &:focus {
+        box-shadow: 0px 0px 0px rgba(240, 128, 128, 0.3);
+        color: white;
+        transform: translateY(0px);
     }
 }
