@@ -1,4 +1,5 @@
 import { Observable } from "rxjs";
+import { People } from "../people/people";
 
 export interface Film {
     id: string;
@@ -13,7 +14,14 @@ export interface FilmDetail extends Film {
     producer: string;
     url: string;
     locations: string[];
-    people: Observable<any[]>;
     species: string[];
     vehicles: string[];
+}
+
+export interface FilmWithoutPeople extends FilmDetail {
+    people: string[];
+}
+
+export interface FilmWithPeople extends FilmDetail {
+    people: Observable<People>[];
 }

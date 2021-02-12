@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
+import { People } from './people';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,14 +14,14 @@ export class PeopleService {
     private httpClient: HttpClient,
   ) { }
 
-  getCharacters({ gender, eyeColor, hairColor }: any = { gender: '', eyeColor: '', hairColor: '' }): Observable<any[]> {
-    let params = new HttpParams()
+  getCharacters({ gender, eyeColor, hairColor }: any = { gender: '', eyeColor: '', hairColor: '' }): Observable<People[]> {
+    let params = new HttpParams();
     
     if (gender) params = params.set('gender', gender);
     if (eyeColor) params = params.set('eye_color', eyeColor);
     if (hairColor) params = params.set('hair_color', hairColor);
 
-    return this.httpClient.get<any[]>(this.peopleUrl, { params }).pipe(
+    return this.httpClient.get<People[]>(this.peopleUrl, { params }).pipe(
       take(1),
       tap(
         () => console.log('GET Characters'),
@@ -29,8 +30,8 @@ export class PeopleService {
     );
   }
 
-  getCharacterById(id: string): Observable<any> {
-    return this.httpClient.get<any>(`${this.peopleUrl}/${id}`).pipe(
+  getCharacterById(id: string): Observable<People> {
+    return this.httpClient.get<People>(`${this.peopleUrl}/${id}`).pipe(
       take(1),
       tap(
         () => console.log('GET Character by ID'),

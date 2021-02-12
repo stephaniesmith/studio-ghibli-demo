@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable, of } from 'rxjs';
 import { mergeMap, take, tap } from 'rxjs/operators';
-import { Film, FilmDetail } from './films';
+import { Film, FilmDetail, FilmWithoutPeople, FilmWithPeople } from './films';
 import { PeopleService } from '../people/people.service';
+import { People } from '../people/people';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +28,8 @@ export class FilmsService {
     );
   }
 
-  getFilmById(id: string): Observable<FilmDetail> {
-    return this.httpClient.get<any>(`${this.filmUrl}/${id}`).pipe(
+  getFilmById(id: string): Observable<FilmWithPeople> {
+    return this.httpClient.get<FilmWithoutPeople>(`${this.filmUrl}/${id}`).pipe(
       take(1),
       tap(
         () => console.log('GET Film by ID'),
