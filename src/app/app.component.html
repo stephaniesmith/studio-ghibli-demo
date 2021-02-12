@@ -1,16 +1,28 @@
 <header>
-  <h1>Studio Ghibli</h1>
-  <nav>
-    <a routerLink="">
-      Home
-    </a>
-    <a routerLink="films">
-      Films
-    </a>
-    <a routerLink="characters">
-      Characters
-    </a>
-  </nav>
+  <img
+    src="assets/studio-ghibli.png"
+    alt="Studio Ghibli"
+    class="logo">
+  <div class="nav">
+    <nav>
+      <a routerLink="home"
+         routerLinkActive="active">
+        Home
+      </a>
+      <a routerLink="films"
+         routerLinkActive="active">
+        Films
+      </a>
+      <a routerLink="characters"
+         routerLinkActive="active">
+        Characters
+      </a>
+    </nav>
+    <img
+      src="assets/studio-ghibli-logo-no-words.png"
+      alt="Studio Ghibli"
+      class="totoro">
+  </div>
 </header>
 <main>
   <router-outlet></router-outlet>
