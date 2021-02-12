@@ -9,3 +9,7 @@
         <p>Hair Color: {{ character.hair_color }}</p>
     </div>
 </section>
+<p  *ngIf="!characters.length"
+    class="card">
+    {{ 'No Available Characters' | uppercase}}
+</p>

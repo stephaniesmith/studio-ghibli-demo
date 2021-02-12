@@ -20,6 +20,42 @@
             </option>
         </select>
     </div>
+    <div class="filter">
+        <label for="eye-color">
+            Eye Color
+        </label>
+        <select
+            name="eye-color"
+            id="eye-color"
+            formControlName="eyeColor">
+            <option value="">
+                All Colors
+            </option>
+            <option
+                *ngFor="let eyeColor of eyeColors"
+                [value]="eyeColor">
+                {{ eyeColor }}
+            </option>
+        </select>
+    </div>
+    <div class="filter">
+        <label for="hair-color">
+            Hair Color
+        </label>
+        <select
+            name="hair-color"
+            id="hair-color"
+            formControlName="hairColor">
+            <option value="">
+                All Colors
+            </option>
+            <option
+                *ngFor="let hairColor of hairColors"
+                [value]="hairColor">
+                {{ hairColor }}
+            </option>
+        </select>
+    </div>
     <div>
         <button
             class="button"

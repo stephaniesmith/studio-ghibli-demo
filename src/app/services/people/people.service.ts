@@ -13,10 +13,12 @@ export class PeopleService {
     private httpClient: HttpClient,
   ) { }
 
-  getCharacters({ gender }: { gender: string } = { gender: '' }): Observable<any[]> {
+  getCharacters({ gender, eyeColor, hairColor }: any = { gender: '', eyeColor: '', hairColor: '' }): Observable<any[]> {
     let params = new HttpParams()
     
     if (gender) params = params.set('gender', gender);
+    if (eyeColor) params = params.set('eye_color', eyeColor);
+    if (hairColor) params = params.set('hair_color', hairColor);
 
     return this.httpClient.get<any[]>(this.peopleUrl, { params }).pipe(
       take(1),

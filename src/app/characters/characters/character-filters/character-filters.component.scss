@@ -1,15 +1,16 @@
-form {
+.card {
     align-items: flex-end;
     border-top: solid rgb(240, 128, 128, .25) .25rem;
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 1.5rem;
 }
 
 .filter {
-    display: flex;
-    flex-direction: column;
+    margin: .5rem;
 
     label {
+        display: block;
         font-size: .75rem;
         font-weight: bold;
         margin-bottom: .25rem;
@@ -18,6 +19,7 @@ form {
     select {
         border-color: rgb(240, 128, 128);
         border-radius: .25rem;
+        display: block;
         font-size: 1rem;
         outline: none;
         padding: .5rem
@@ -31,7 +33,7 @@ form {
     color: white;
     cursor: pointer;
     font-size: 1rem;
-    margin-left: 1rem;
+    margin: .5rem;
     outline: none;
     padding: .5rem 1rem;
     text-decoration: none;

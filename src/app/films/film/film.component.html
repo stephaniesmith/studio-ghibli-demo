@@ -19,4 +19,8 @@
             </ng-container>
         </div>
     </section>
+    <p  *ngIf="!film.people.length"
+        class="card">
+        {{ 'No Available Characters' | uppercase}}
+    </p>
 </ng-container>
