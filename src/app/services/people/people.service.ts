@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
-import { People } from './people';
+import { People, PeopleParams } from './people';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +14,7 @@ export class PeopleService {
     private httpClient: HttpClient,
   ) { }
 
-  getCharacters({ gender, eyeColor, hairColor }: any = { gender: '', eyeColor: '', hairColor: '' }): Observable<People[]> {
+  getCharacters({ gender, eyeColor, hairColor }: PeopleParams = { gender: '', eyeColor: '', hairColor: '' }): Observable<People[]> {
     let params = new HttpParams();
     
     if (gender) params = params.set('gender', gender);

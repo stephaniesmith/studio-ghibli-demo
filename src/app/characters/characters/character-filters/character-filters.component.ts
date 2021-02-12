@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
+import { People } from 'src/app/services/people/people';
 
 @Component({
   selector: 'app-character-filters',
@@ -7,7 +8,7 @@ import { FormBuilder, FormControl } from '@angular/forms';
   styleUrls: ['./character-filters.component.scss']
 })
 export class CharacterFiltersComponent implements OnInit {
-  @Input() characters: any[] = [];
+  @Input() characters: People[] = [];
   genders: string[] = [];
   ages: string[] = [];
   eyeColors: string[] = [];

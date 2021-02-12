@@ -9,3 +9,9 @@ export interface People {
     species: string;
     url: string;
 }
+
+export interface PeopleParams {
+    gender: string;
+    eyeColor: string;
+    hairColor: string;
+}

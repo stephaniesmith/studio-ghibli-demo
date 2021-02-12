@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { People } from 'src/app/services/people/people';
 import { PeopleService } from 'src/app/services/people/people.service';
 
 @Component({
@@ -8,8 +9,8 @@ import { PeopleService } from 'src/app/services/people/people.service';
   styleUrls: ['./characters.component.scss']
 })
 export class CharactersComponent implements OnInit {
-  allCharactersObservable: Observable<any[]> = this.people.getCharacters();
-  filteredCharacterObservable: Observable<any[]> = this.allCharactersObservable;
+  allCharactersObservable: Observable<People[]> = this.people.getCharacters();
+  filteredCharacterObservable: Observable<People[]> = this.allCharactersObservable;
 
   constructor(private people: PeopleService) { }
 
