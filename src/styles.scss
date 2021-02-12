@@ -12,6 +12,7 @@ html {
 body {
     background-color: rgb(248, 248, 248);
     font-family: Arial, Helvetica, sans-serif;
+    min-height: 101vh;
 }
 
 .card-list {
@@ -22,7 +23,7 @@ body {
 
 .card {
     background-color: white;
-    border-radius: .15rem;
+    border-radius: .25rem;
     box-shadow: 0px 2px 3px 2px rgba(151,153,155,0.2);
     padding: 1.5rem 2rem;
 

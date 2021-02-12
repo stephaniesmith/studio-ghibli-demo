@@ -1,7 +1,8 @@
 <form
+    class="card"
     [formGroup]="filterForm"
     (ngSubmit)="onSubmit()">
-    <div>
+    <div class="filter">
         <label for="gender">
             Gender
         </label>
@@ -19,7 +20,11 @@
             </option>
         </select>
     </div>
-    <button type="submit">
-        Apply Filters
-    </button>
+    <div>
+        <button
+            class="button"
+            type="submit">
+            Apply Filters
+        </button>
+    </div>
 </form>

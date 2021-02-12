@@ -34,6 +34,7 @@ header {
                 transition: all 0.3s ease-in-out;
     
                 &:hover {
+                    color: rgb(240, 128, 128);
                     font-weight: 600;
                     font-size: 1.125rem;
                 }
@@ -42,6 +43,7 @@ header {
     }
 
     .active {
+        color: rgb(240, 128, 128);
         font-weight: 600;
         font-size: 1.125rem;
     }
