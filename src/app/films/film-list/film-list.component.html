@@ -1,11 +1,10 @@
 <section class="card-list">
-    <div
+    <a [routerLink]="film.id"
         *ngFor="let film of (filmsObservable | async)"
         class="card">
-        <h2>{{ film.title }}</h2>
-        <p>{{ film.description }}</p>
-        <a [routerLink]="film.id">
-            Film Details
-        </a>
-    </div>
+        <div>
+            <h2>{{ film.title }}</h2>
+            <p>{{ film.description }}</p>
+        </div>
+    </a>
 </section>
